@@ -1,1 +1,1 @@
-![Project Architecture](./architecture.png)
+![Project Architecture](./projectfile.docx)
