@@ -1,0 +1,68 @@
+2025-08-29T08:45:14.566Z
+My log message
+2025-08-29T08:45:21.896Z
+print schema of AmazonS3_node1756452497645
+2025-08-29T08:45:35.846Z
+root
+|-- index: long
+|-- customer id: string
+|-- first name: string
+|-- last name: string
+|-- company: string
+|-- city: string
+|-- country: string
+|-- phone 1: string
+|-- phone 2: string
+|-- email: string
+|-- subscription date: string
+|-- website: string
+
+
+root |-- index: long |-- customer id: string |-- first name: string |-- last name: string |-- company: string |-- city: string |-- country: string |-- phone 1: string |-- phone 2: string |-- email: string |-- subscription date: string |-- website: string
+2025-08-29T08:45:36.044Z
+Number of rows in AmazonS3_node1756452497645 dynamic frame: 100
+2025-08-29T08:45:36.044Z
+count for frame is 100
+2025-08-29T08:45:36.172Z
+print schema of ResolveChoice_node
+2025-08-29T08:45:36.181Z
+root |-- index: long |-- new_customer id: string |-- new_first name: string |-- last name: string |-- company: string |-- city: string |-- country: string |-- phone 1: string |-- new_phone 2: long |-- email: string |-- subscription date: string |-- website: string
+2025-08-29T08:45:36.181Z
+convert dynamic dataframe ResolveChoice_node into spark dataframe
+2025-08-29T08:45:38.523Z
+/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/dataframe.py:147: UserWarning: DataFrame constructor is internal. Do not directly use it.
+2025-08-29T08:45:38.523Z
+renaming the column names
+2025-08-29T08:45:38.619Z
+filter rows with where new_seller_id is not null
+2025-08-29T08:45:38.669Z
+create new column status with Active value
+2025-08-29T08:45:42.567Z
++-----+---------------+--------------+---------+--------------------+----------------+--------------------+--------------------+-----------+--------------------+-----------------+--------------------+----------+ |index|new_customer_id|new_first_name|last name| company| city| country| phone 1|new_phone_2| email|subscription date| website|new_status| +-----+---------------+--------------+---------+--------------------+----------------+--------------------+--------------------+-----------+--------------------+-----------------+--------------------+----------+ | 16|B58fecf82f997Dd| Sean| Townsend| Preston-Sosa| Velasquezberg| Iran| 001-534-283-5153| 5786415664| lkline@maxwell.info| 2020-05-30|http://www.vargas...| Active| | 26|3d7bE19696ea8Ff| Douglas| Galloway| Duffy Inc| Eileenbury| Mongolia| +1-205-528-2409x137| 8018224814|caleb11@velazquez...| 2021-10-
+2025-08-29T08:45:42.567Z
+24|http://www.mcneil...| Active| | 32|bd04F2A7BD4F730| Amanda| Santiago| Roberts-Heath| Benjaminchester|United Arab Emirates| 218-803-3440x413| 1810375857|emmarasmussen@rom...| 2021-05-06|http://gillespie....| Active| | 64|5DcB42c2f8fBfb5| Trevor| Rowland|Ritter, Fox and E...| Deanchester| Nigeria| 938.501.2065x13955| 6382043216|simpsonraven@liu.com| 2022-03-04|http://noble-bear...| Active| | 67|ccD94BbaEDBBf9E| Norman| French| Becker-Mata| South Emma| Marshall Islands| 364-757-7628x522| 5684199088|spearsfrank@mclea...| 2021-03-27|https://mcculloug...| Active| | 82|fD7FbF8BA88Fff8| Tammy| Harmon| Kidd-Stone| Chaneychester| Yemen|+1-528-220-2228x1...| 3949064205|abigail05@mckee.info| 2020-09-01|https://www.walsh...| Active| | 95|e9eFc5d60ddc3ec| Dakota| Bowman| Gomez-Tapia|West Barbarafurt| China| +1-707-196-7497| 4793362473|
+2025-08-29T08:45:42.568Z
+branchmegan@dough...| 2022-04-17|https://deleon-av...| Active| +-----+---------------+--------------+---------+--------------------+----------------+--------------------+--------------------+-----------+--------------------+-----------------+--------------------+----------+ convert spark dataframe into table view product_view. so that we can run sql
+2025-08-29T08:45:42.616Z
+create dataframe by spark sql
+2025-08-29T08:45:42.778Z
+display records after aggregate result
+2025-08-29T08:45:45.506Z
++--------------+---+---+
+|new_first_name|cnt|qty|
++--------------+---+---+
+|       Douglas|  1| 26|
+|        Amanda|  1| 32|
+|        Trevor|  1| 64|
+|        Norman|  1| 67|
+|        Dakota|  1| 95|
+|          Sean|  1| 16|
+|         Tammy|  1| 82|
++--------------+---+---+
+
+
++--------------+---+---+ |new_first_name|cnt|qty| +--------------+---+---+ | Douglas| 1| 26| | Amanda| 1| 32| | Trevor| 1| 64| | Norman| 1| 67| | Dakota| 1| 95| | Sean| 1| 16| | Tammy| 1| 82| +--------------+---+---+
+2025-08-29T08:45:45.506Z
+convert spark dataframe to dynamic frame
+2025-08-29T08:45:49.708Z
+Running autoDebugger shutdown hook.
