@@ -3,7 +3,7 @@
 Building the modern data pipeline with AWS glue including ETL processes, data cleaning and analytics.
 
 ## Project Architecture
-![Project Architecture](./architecture.docx)
+![Project Architecture](./architecture.png)
 
 ## Project Overview
 1. Data Architecture: Created the redshift cluster for data warehouce using aws redshift and networking.
